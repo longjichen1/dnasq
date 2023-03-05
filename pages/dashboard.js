@@ -36,6 +36,16 @@ function dashboard() {
   useEffect(() => {
     fetchPost();
   }, []);
+
+  if (userAccess === "unauthorized")
+    return (
+      <>
+        <Navbar />
+        <div className="w-[50%] h-[400px] text-center bg-white mt-6 flex flex-col justify-center m-auto text-3xl text-black">
+          Please wait for application approval!
+        </div>
+      </>
+    );
   return (
     <>
       <Navbar />
@@ -61,14 +71,16 @@ function dashboard() {
               <th scope="col" class="px-6 py-3">
                 Format
               </th>
+
+              <th scope="col" class="px-6 py-3">
+                Details
+              </th>
+
               {userAccess === "admin" ? (
                 <th scope="col" class="px-6 py-3">
-                  Details
+                  Action
                 </th>
               ) : null}
-              <th scope="col" class="px-6 py-3">
-                Action
-              </th>
             </tr>
           </thead>
           <tbody>
@@ -82,25 +94,29 @@ function dashboard() {
                 <td class="px-6 py-4">{data.info.VT}</td>
                 <td class="px-6 py-4">{data.filter}</td>
                 <td class="px-6 py-4">{data.format}</td>
-                <td class="px-6 py-4">
-                  <a
-                    onClick={() => handleAuthorization(user)}
-                    href="#"
-                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                  >
-                    View
-                  </a>
-                </td>
+                {userAccess !== "unauthorized" ? (
+                  <td class="px-6 py-4">
+                    <a
+                      onClick={() => handleAuthorization(user)}
+                      href="#"
+                      class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    >
+                      View
+                    </a>
+                  </td>
+                ) : null}
 
-                <td class="px-6 py-4">
-                  <a
-                    onClick={() => handleAuthorization(user)}
-                    href="#"
-                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                  >
-                    {data.access === true ? "Lock" : "Unlock"}
-                  </a>
-                </td>
+                {userAccess === "admin" ? (
+                  <td class="px-6 py-4">
+                    <a
+                      onClick={() => handleAuthorization(user)}
+                      href="#"
+                      class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    >
+                      {data.access === true ? "Lock" : "Unlock"}
+                    </a>
+                  </td>
+                ) : null}
               </tr>
             ))}
           </tbody>

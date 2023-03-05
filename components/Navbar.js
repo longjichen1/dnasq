@@ -14,14 +14,12 @@ const Navbar = () => {
   return (
     <>
       <div className="sticky pb-4 sm:pb-0 top-0 z-50 bg-[#28315a] border-b-2 border-black drop-shadow-xl filter shadow-md flex justify-start text-xl px-3 md:pr-20 font-semibold text-white">
-        <div className="hidden sm:inline-block ml-[8px] sm:ml-[40px] mr-auto mt-3 w-[40px] h-[40px]">
+        <div className="hidden sm:inline-block ml-[8px] sm:ml-[40px] mr-auto mt-2 w-[120px] h-[40px]">
           <Link href="/">
-            <Image
-              className="hover:cursor-pointer"
-              alt="Logo"
-              src="/logos/small_logo.png"
-              width={100}
-              height={100}
+            <img
+              className="w-72 mt-2 px-5  bg-white border-2 rounded-xl"
+              src="/logo.png"
+              alt="logo"
             />
           </Link>
         </div>
