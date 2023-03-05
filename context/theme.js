@@ -23,6 +23,7 @@ export function ThemeProvider({ children }) {
         console.log(e);
       }
     } else {
+      setUserAccess("unauthorized");
     }
   });
 
