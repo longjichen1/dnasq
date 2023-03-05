@@ -26,19 +26,6 @@ export default function Login({}) {
       setLoginError(true);
     }
   };
-  const loginErrorElement = (
-    <>
-      {password && password.length < 6 ? (
-        <p className="text-red-600 text-center sm:text-[10px] xl:text-xl lg:text-sm ">
-          Password must be at least 6 characters in length!
-        </p>
-      ) : (
-        <p className="text-red-600 transform duration-500 opacity-100 sm:text-[10px] lg:text-sm text-center w-5/6 m-auto xl:text-xl sm:text-md">
-          Invalid Email/Password Combination. Please try again!
-        </p>
-      )}
-    </>
-  );
 
   const inputForm = (
     <section className="bg-transparent dark:bg-gray-900">

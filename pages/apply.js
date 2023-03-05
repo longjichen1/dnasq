@@ -61,66 +61,6 @@ const Apply = () => {
       </>
     );
 
-  const inputForm = (
-    <>
-      <br />
-      <input
-        type="email"
-        className={`invalid:text-red-600 lg:text-sm lg:p-2 sm:p-1  w-3/4 sm:text-[10px] my-3 required invalid:border-red-600 text-black xl:text-xl xl:p-4 border-2 border-black  rounded-xl m-auto block`}
-        placeholder="Email..."
-        onChange={(event) => {
-          setSignUpError(false);
-          setLoginError(false);
-          setEmail(event.target.value);
-        }}
-      />
-
-      <input
-        type="password"
-        className={`text-black xl:text-xl lg:text-sm lg:p-2 xl:p-4 sm:p-1  sm:text-[10px] my-3 w-3/4 border-2 border-black rounded-xl m-auto block`}
-        placeholder="Password..."
-        onChange={(event) => {
-          setSignUpError(false);
-          setLoginError(false);
-          setPassword(event.target.value);
-        }}
-      />
-    </>
-  );
-  const signUpErrorPassword = (
-    <>
-      {confirmPW.length >= 6 ? (
-        <p className="text-red-600 text-center xl:text-xl sm:text-[10px] lg:text-sm sm:text-md">
-          Email already in use!
-        </p>
-      ) : (
-        <p className="text-red-600 text-center xl:text-xl sm:text-[10px] lg:text-sm sm:text-md">
-          Password must be at least 6 characters in length!
-        </p>
-      )}
-    </>
-  );
-  const signUpErrorElement = (
-    <>
-      {!(confirmPW === password) ? (
-        <p className="text-red-600 text-center xl:text-xl sm:text-[10px] lg:text-sm sm:text-md">
-          Passwords do not match!
-        </p>
-      ) : (
-        <>
-          {password.length >= 6 ? (
-            <p className="text-red-600 text-center xl:text-xl sm:text-[10px] lg:text-sm sm:text-md">
-              Email already in use!
-            </p>
-          ) : (
-            <p className="text-red-600 text-center xl:text-xl sm:text-[10px] lg:text-sm sm:text-lg">
-              Password must be at least 6 characters in length!
-            </p>
-          )}
-        </>
-      )}
-    </>
-  );
   const signUpElement = (
     <section className="bg-transparent dark:bg-gray-900">
       <div className="flex flex-col items-center justify-center px-6 py-8 my-3 mx-auto md:h-[80%] lg:py-0">
