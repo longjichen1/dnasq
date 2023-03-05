@@ -1,12 +1,20 @@
 import { createContext, useContext, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, firestore } from "../firebase-config";
+import { getDoc, doc } from "firebase/firestore";
 const Context = createContext();
 
 export function ThemeProvider({ children }) {
   const [user, setUser] = useState({});
-  onAuthStateChanged(auth, (currentUser) => {
+  const [userAccess, setUserAccess] = useState("unauthorized");
+  onAuthStateChanged(auth, async (currentUser) => {
     setUser(currentUser);
+    if (user) {
+      const email = user.email;
+      const post = await getDoc(doc(firestore, `users`, email));
+
+      console.log(post?.data());
+    }
   });
   const [userType, setUserType] = useState("none"); //none, user, admin
   return (
