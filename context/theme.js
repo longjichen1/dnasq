@@ -10,13 +10,18 @@ export function ThemeProvider({ children }) {
   onAuthStateChanged(auth, async (currentUser) => {
     setUser(currentUser);
     if (user) {
-      const email = user.email;
-      const post = await getDoc(doc(firestore, `users`, email));
+      try {
+        const ref = doc(firestore, "users/", user.email);
+        const post = await getDoc(ref);
 
-      if (post) {
-        console.log(post.data());
-        setUserAccess(post.data().access);
+        if (post) {
+          console.log(post.data());
+          if (post.data()) setUserAccess(post.data().access);
+        }
+      } catch (e) {
+        console.log(e);
       }
+    } else {
     }
   });
   const [userType, setUserType] = useState("none"); //none, user, admin

@@ -6,7 +6,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@next-auth/firebase-adapter": "^0.0.2-canary.207",
     "firebase": "^9.17.2",
     "next": "latest",
     "next-auth": "^4.20.1",

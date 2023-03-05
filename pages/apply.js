@@ -61,28 +61,6 @@ const Apply = () => {
       </>
     );
 
-  //   const addPhoto = () => {
-  //     if (user) {
-  //       if (like) {
-  //         setLike(false);
-  //         console.log("delete");
-  //         deleteDoc(doc(firestore, `users/${user.uid}/likes`, photoData.date));
-  //       } else {
-  //         const ref = setDoc(
-  //           doc(firestore, `users/${user.uid}/likes`, photoData.date),
-  //           {
-  //             photoTitle: photoData.title,
-  //             photoDate: photoData.date,
-  //             photoImage: photoData.url,
-  //             photoDescription: photoData.explanation,
-  //           }
-  //         );
-  //         setLike(true);
-  //       }
-  //     } else {
-  //       alert("Sign in to like and save your images!");
-  //     }
-  //   };
   const inputForm = (
     <>
       <br />
