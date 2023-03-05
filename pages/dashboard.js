@@ -6,7 +6,13 @@ import Image from "next/image";
 const About = () => {
   const [user, setUser, userAccess, setUserAccess] = useThemeContext();
 
-  if (userAccess === "unauthorized") return <Navbar />;
+  if (userAccess === "unauthorized")
+    return (
+      <>
+        <Navbar />
+        <div>Please wait for your application to be approved!</div>
+      </>
+    );
   return (
     <div className="text-[#28315A]">
       <Navbar />

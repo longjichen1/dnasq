@@ -6,11 +6,10 @@ import { useThemeContext } from "../context/theme";
 import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth, firestore } from "../firebase-config";
 const Navbar = () => {
-  const [user, setUser] = useThemeContext();
+  const [user, setUser, userAccess, setUserAccess] = useThemeContext();
   useEffect(() => {
     console.log(user);
   }, [user]);
-  // TODO Make text color #FBF1BC and underlined when selected
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
@@ -26,6 +25,14 @@ const Navbar = () => {
             />
           </Link>
         </div>
+        {userAccess === "admin" ? (
+          <div
+            className="hidden sm:block text-base m-[20px] hover:underline"
+            id="manage"
+          >
+            <Link href="/dashboard">Manage Users</Link>
+          </div>
+        ) : null}
         {user ? (
           <div
             className="hidden sm:block text-base m-[20px] hover:underline"
