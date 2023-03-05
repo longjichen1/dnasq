@@ -1,9 +1,12 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-
+import { useThemeContext } from "../context/theme";
 import Image from "next/image";
 
 const About = () => {
+  const [user, setUser, userAccess, setUserAccess] = useThemeContext();
+
+  if (userAccess === "unauthorized") return <Navbar />;
   return (
     <div className="text-[#28315A]">
       <Navbar />

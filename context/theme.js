@@ -15,8 +15,9 @@ export function ThemeProvider({ children }) {
         const post = await getDoc(ref);
 
         if (post) {
-          console.log(post.data());
-          if (post.data()) setUserAccess(post.data().access);
+          const acc = post.data().access;
+
+          if (post.data()) setUserAccess(acc);
         }
       } catch (e) {
         console.log(e);
@@ -24,7 +25,7 @@ export function ThemeProvider({ children }) {
     } else {
     }
   });
-  const [userType, setUserType] = useState("none"); //none, user, admin
+
   return (
     <Context.Provider value={[user, setUser, userAccess, setUserAccess]}>
       {children}

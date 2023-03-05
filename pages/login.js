@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Button from "../components/Button";
 import Navbar from "../components/Navbar";
+import Link from "next/link";
 import { collection, addDoc, setDoc, doc } from "firebase/firestore";
 import {
   createUserWithEmailAndPassword,
@@ -89,7 +90,9 @@ export default function Login({
         {inputForm}
 
         <div className="my-2 text-center">
-          <Button func={login} />
+          <Link href="/">
+            <Button func={login} />
+          </Link>
         </div>
         {loginError ? loginErrorElement : <p></p>}
       </div>
