@@ -2,7 +2,19 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import { firestore } from "../firebase-config";
 import { collection, doc, setDoc, getDocs } from "firebase/firestore";
+import { useThemeContext } from "../context/theme";
 function manage() {
+  const [user, setUser, userAccess, setUserAccess] = useThemeContext();
+  if (userAccess !== "admin")
+    return (
+      <>
+        <Navbar />{" "}
+        <div className="w-[50%] h-[50vh] text-center bg-white mt-20 flex flex-col rounded-xl shadow-md justify-center m-auto text-3xl text-black">
+          <img className=" mx-auto w-32" src="/wait.png" alt="" />
+          <h1 className="my-6">Error accessing content!</h1>
+        </div>
+      </>
+    );
   const [userList, setUserList] = useState([]);
 
   const handleAuthorization = async (user) => {
