@@ -26,7 +26,7 @@ export function ThemeProvider({ children }) {
   });
   const [userType, setUserType] = useState("none"); //none, user, admin
   return (
-    <Context.Provider value={[user, setUser, userType, setUserType]}>
+    <Context.Provider value={[user, setUser, userAccess, setUserAccess]}>
       {children}
     </Context.Provider>
   );
