@@ -13,7 +13,10 @@ export function ThemeProvider({ children }) {
       const email = user.email;
       const post = await getDoc(doc(firestore, `users`, email));
 
-      console.log(post?.data());
+      if (post) {
+        console.log(post.data());
+        setUserAccess(post.data().access);
+      }
     }
   });
   const [userType, setUserType] = useState("none"); //none, user, admin
