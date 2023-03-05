@@ -30,7 +30,7 @@ const Navbar = () => {
             className="hidden sm:block text-base m-[20px] hover:underline"
             id="manage"
           >
-            <Link href="/dashboard">Manage Users</Link>
+            <Link href="/manage">Manage Users</Link>
           </div>
         ) : null}
         {user ? (

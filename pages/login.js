@@ -9,15 +9,7 @@ import {
 } from "firebase/auth";
 import { auth, firestore } from "../firebase-config";
 
-export default function Login({
-  blur,
-  setBlur,
-  loggedIn,
-  setLoggedIn,
-  loginBox,
-  setLoginBox,
-  photoData,
-}) {
+export default function Login({}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPW, setConfirmPW] = useState("");
