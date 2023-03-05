@@ -41,60 +41,91 @@ export default function Login({}) {
   );
 
   const inputForm = (
-    <>
-      <br />
-      <input
-        type="email"
-        className={`invalid:text-red-600 lg:text-sm lg:p-2 sm:p-1  w-3/4 sm:text-[10px] my-3 required invalid:border-red-600 text-black xl:text-xl xl:p-4 border-4 border-none rounded-3xl m-auto block`}
-        placeholder="Email..."
-        onChange={(event) => {
-          setSignUpError(false);
-          setLoginError(false);
-          setEmail(event.target.value);
-        }}
-      />
-
-      <input
-        type="password"
-        className={`text-black xl:text-xl lg:text-sm lg:p-2 xl:p-4 sm:p-1  sm:text-[10px] my-3 w-3/4 border-4 border-none rounded-3xl m-auto block`}
-        placeholder="Password..."
-        onChange={(event) => {
-          setSignUpError(false);
-          setLoginError(false);
-          setPassword(event.target.value);
-        }}
-      />
-    </>
-  );
-  const loginElement = (
-    <div
-      className={`border-0 absolute m-auto left-0 right-0 xl:w-[70%] xl:h-[70%] sm:w-[50%] sm:text-sm sm:h-[70%] lg:w-[50%] lg:h-[90%]  top-0 bottom-0 rounded-3xl z-40  text-3xl`}
-    >
-      <div
-        id="login"
-        className={`absolute xl:top-0 m-auto xl:bottom-0 left-8 sm:-left-0 sm:block overflow-hidden inline-block xl:text-3xl lg:text-xl md:text-sm xl:h-[90%] xl:w-[45%] rounded-3xl sm:w-[100%] sm:h-[45%]  border-blue-600 border-4`}
-      >
-        <h1
-          className={`text-white text-center bg-blue-900 p-4 sm:p-2 z-38 border-blue-600 border-b-4 `}
+    <section className="bg-transparent dark:bg-gray-900">
+      <div className="flex flex-col items-center justify-center px-6 py-8 my-3 mx-auto md:h-[80%] lg:py-0">
+        <a
+          href="#"
+          className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
         >
-          Login
-        </h1>
-        {inputForm}
+          <img
+            className="w-36 mt-2 px-5 py-2  bg-white border-2 rounded-xl"
+            src="/logo.png"
+            alt="logo"
+          />
+        </a>
+        <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-xl dark:text-white">
+              Login to Your Account
+            </h1>
 
-        <div className="my-2 text-center">
-          <Link href="/">
-            <Button func={login} />
-          </Link>
+            <div className="flex flex-row -mb-2"></div>
+            <div>
+              <label
+                htmlFor="email"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Your email
+              </label>
+              <input
+                onChange={(event) => {
+                  setEmail(event.target.value);
+                }}
+                type="email"
+                name="email"
+                id="email"
+                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="name@company.com"
+                required=""
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="password"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Password
+              </label>
+              <input
+                onChange={(event) => {
+                  setPassword(event.target.value);
+                }}
+                type="password"
+                name="password"
+                id="password"
+                placeholder="••••••••"
+                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                required=""
+              />
+            </div>
+
+            <Link href="/dashboard">
+              <button
+                onClick={login}
+                class="w-full text-black bg-primary-600 mt-4 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+              >
+                Login
+              </button>
+            </Link>
+            <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+              Dont have an account?{" "}
+              <a
+                href="/apply"
+                className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+              >
+                Apply here
+              </a>
+            </p>
+          </div>
         </div>
-        {loginError ? loginErrorElement : <p></p>}
       </div>
-    </div>
+    </section>
   );
 
   return (
     <>
       <Navbar />
-      {loginElement}
+      {inputForm}
     </>
   );
 }
